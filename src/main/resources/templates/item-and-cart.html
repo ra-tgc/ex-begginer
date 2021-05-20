@@ -9,7 +9,7 @@
 <div id="main">
 <div id="left">
 <p>商品一覧</p>
-<form action="item-and-cart.html" th:action="@{/ex06/register-cart}" method="post">
+<form action="item-and-cart.html" th:action="@{/ex06/in-cart}" method="post">
 	<div th:each="product : ${productList}">
 		<span th:text="${product.name}">ダミー</span>
 		<span th:text="${#numbers.formatInteger(product.price, 1, 'COMMA')}">0</span>円
@@ -20,7 +20,7 @@
 </div>
 <div id="right">
 <p>ショッピングカート</p>
-<form action="item-and-cart.html" th:action="@{/ex06/register-cart}" method="post">
+<form action="item-and-cart.html" th:action="@{/ex06/delete}" method="post">
 	<div th:each="cartItem : ${cartItemList}">
 		<span th:text="${cartItem.name}">ダミー</span>
 		<span th:text="${#numbers.formatInteger(cartItem.price, 1, 'COMMA')}">0</span>円
