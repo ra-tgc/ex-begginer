@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +13,7 @@ import com.example.form.UserForm;
 
 @Controller
 @RequestMapping("/ex04")
-public class Ex04Controller {
+public class Exam04Controller {
 
 	@ModelAttribute
 	public UserForm setUpForm() {
@@ -32,9 +33,10 @@ public class Ex04Controller {
 		}
 
 		User user = new User();
-		user.setName(userForm.getName());
-		user.setAge(userForm.getIntAge());
-		user.setComment(userForm.getComment());
+		BeanUtils.copyProperties(userForm, user);
+//		user.setName(userForm.getName());
+//		user.setAge(userForm.getIntAge());
+//		user.setComment(userForm.getComment());
 
 		model.addAttribute("user", user);
 
