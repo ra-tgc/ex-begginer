@@ -29,7 +29,7 @@ public class Exam05Controller {
 
 		for (Member member : memberList) {
 			// デバッグ
-			System.out.println(member.getName());
+			// System.out.println(member.getName());
 			nameList.add(member.getName());
 		}
 
