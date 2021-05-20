@@ -12,7 +12,7 @@
 <form action="item-and-cart.html" th:action="@{/ex06/register-cart}" method="post">
 	<div th:each="product : ${productList}">
 		<span th:text="${product.name}">ダミー</span>
-		<span th:text="${#numbers.formatInteger(product.money, 1, 'COMMA')}">0</span>円
+		<span th:text="${#numbers.formatInteger(product.price, 1, 'COMMA')}">0</span>円
 		<button>カートへ</button>
 	</div>
 </form>
@@ -21,14 +21,14 @@
 <div id="right">
 <p>ショッピングカート</p>
 <form action="item-and-cart.html" th:action="@{/ex06/register-cart}" method="post">
-	<div th:each="product : ${productList}">
-		<span th:text="${product.name}">ダミー</span>
-		<span th:text="${#numbers.formatInteger(product.money, 1, 'COMMA')}">0</span>円
+	<div th:each="cartItem : ${cartItemList}">
+		<span th:text="${cartItem.name}">ダミー</span>
+		<span th:text="${#numbers.formatInteger(cartItem.price, 1, 'COMMA')}">0</span>円
 		<button>カートへ</button>
 	</div>
 </form>
 <p>合計(requestスコープ)</p>
-<span th:text="${#numbers.formatInteger(sum, 1, 'COMMA')}">0</span>円
+<span th:text="${#numbers.formatInteger(sumPrice, 1, 'COMMA')}">0</span>円
 </div>
 </div>
 </body>
