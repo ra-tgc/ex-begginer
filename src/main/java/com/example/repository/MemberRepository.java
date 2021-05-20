@@ -21,8 +21,9 @@ public class MemberRepository {
 	private static final RowMapper<Member> MEMBER_ROW_MAPPER = new BeanPropertyRowMapper<>(Member.class);
 
 	public List<Member> findByName(String name) {
-		String sql = "SELECT id, name, age, dep_id FROM members WHERE name LIKE %:name%;";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("name", name);
+		String sql = "SELECT id, name, age, dep_id FROM members WHERE name LIKE :name;";
+		String searchName = "%" + name + "%";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("name", searchName);
 		List<Member> memberList = template.query(sql, param, MEMBER_ROW_MAPPER);
 
 		return memberList;
