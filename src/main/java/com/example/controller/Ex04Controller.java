@@ -3,6 +3,7 @@ package com.example.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,7 +25,8 @@ public class Ex04Controller {
 	}
 
 	@RequestMapping("/receive-info")
-	public String receiveInfo(UserForm userForm, BindingResult result, Model model) {
+	public String receiveInfo(@Validated UserForm userForm, BindingResult result, Model model) {
+
 		if (result.hasErrors()) {
 			return index();
 		}
