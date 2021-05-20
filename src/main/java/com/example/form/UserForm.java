@@ -8,7 +8,7 @@ public class UserForm {
 	@NotBlank(message = "名前は必須です")
 	private String name;
 	@NotBlank(message = "年齢は必須です")
-	@Pattern(regexp = "^[0-9]*$")
+	@Pattern(regexp = "^[0-9]*$", message = "半角数字で入力してください")
 	private String age;
 	@NotBlank(message = "コメントは必須です")
 	@Size(min = 1, max = 256, message = "コメントは1文字以上256文字以内で記載してください")
